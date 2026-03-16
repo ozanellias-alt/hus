@@ -1,1 +1,379 @@
+import React from "react";
+import { motion } from "framer-motion";
+import {
+  Phone,
+  Mail,
+  MapPin,
+  ArrowRight,
+  Check,
+  ShieldCheck,
+  Leaf,
+  Flame,
+  Droplets,
+  Thermometer,
+  Wrench,
+  Clock3,
+  BadgeEuro,
+  ChevronRight,
+} from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 
+const company = {
+  name: "Ihr Firmenname Heizung & Sanitär",
+  subline: "Wärmepumpen · Heizung · Sanitär · Energieberatung",
+  headline: "Moderne Haustechnik für energieeffiziente Gebäude.",
+  text: "Wir realisieren Wärmepumpeninstallationen, Heizungsmodernisierungen, Sanitärarbeiten und energetische Sanierungen – professionell geplant, sauber umgesetzt und individuell auf Ihr Objekt abgestimmt.",
+  phone: "+49 123 4567890",
+  email: "info@ihrefirma.de",
+  address: "Musterstraße 1, 12345 Musterstadt",
+  ctaPrimary: "Beratung anfragen",
+  ctaSecondary: "Jetzt anrufen",
+};
+
+const services = [
+  {
+    icon: Leaf,
+    title: "Wärmepumpen",
+    text: "Fachgerechte Planung und Installation moderner Wärmepumpensysteme für Altbau, Sanierung und Neubau.",
+  },
+  {
+    icon: Flame,
+    title: "Heizung",
+    text: "Austausch, Modernisierung und Optimierung von Heizungsanlagen für mehr Effizienz und geringere Betriebskosten.",
+  },
+  {
+    icon: Droplets,
+    title: "Sanitär",
+    text: "Zuverlässige Sanitärinstallationen, Badmodernisierung und Umbauten – sauber, präzise und langlebig.",
+  },
+  {
+    icon: Thermometer,
+    title: "Energetische Sanierung",
+    text: "Durchdachte Sanierungskonzepte mit Fokus auf zukunftssichere Wärmeversorgung und nachhaltige Energieeinsparung.",
+  },
+  {
+    icon: BadgeEuro,
+    title: "Energieberatung",
+    text: "Orientierung zu sinnvollen Maßnahmen, Effizienzpotenzialen und möglichen Förderwegen für Ihr Vorhaben.",
+  },
+  {
+    icon: Wrench,
+    title: "Service & Optimierung",
+    text: "Systemoptimierung, hydraulischer Abgleich und technische Verbesserungen für einen stabilen und effizienten Betrieb.",
+  },
+];
+
+const benefits = [
+  "Persönliche Beratung statt Standardlösungen",
+  "Saubere und fachgerechte Ausführung",
+  "Effiziente Systeme mit Zukunft",
+  "Alles aus einer Hand – von Planung bis Umsetzung",
+  "Ideal für Bestand, Sanierung und Neubau",
+  "Verlässliche Kommunikation und klare Abläufe",
+];
+
+const steps = [
+  {
+    number: "01",
+    title: "Analyse & Beratung",
+    text: "Wir besprechen Ihr Projekt, prüfen die Ausgangssituation und finden die passende technische Lösung.",
+  },
+  {
+    number: "02",
+    title: "Planung & Konzept",
+    text: "Sie erhalten eine klare Empfehlung für eine effiziente, wirtschaftliche und langfristig sinnvolle Umsetzung.",
+  },
+  {
+    number: "03",
+    title: "Montage & Umsetzung",
+    text: "Unsere Fachkräfte realisieren Ihr Projekt professionell, strukturiert und termingerecht.",
+  },
+  {
+    number: "04",
+    title: "Betreuung & Optimierung",
+    text: "Auch nach Projektabschluss bleiben wir Ihr Ansprechpartner für Anpassungen und weitere Maßnahmen.",
+  },
+];
+
+const stats = [
+  { value: "100%", label: "individuelle Beratung" },
+  { value: "1", label: "Ansprechpartner für Ihr Projekt" },
+  { value: "6", label: "starke Leistungsbereiche" },
+];
+
+export default function Website() {
+  return (
+    <div className="min-h-screen bg-[#f5f7fa] text-slate-900">
+      <header className="sticky top-0 z-50 border-b border-slate-200/70 bg-white/90 backdrop-blur-xl">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
+          <div className="flex flex-col">
+            <span className="text-lg font-bold tracking-tight">{company.name}</span>
+            <span className="text-xs uppercase tracking-[0.18em] text-slate-500">{company.subline}</span>
+          </div>
+
+          <nav className="hidden items-center gap-7 text-sm text-slate-700 md:flex">
+            <a href="#leistungen" className="transition hover:text-slate-950">Leistungen</a>
+            <a href="#ueberblick" className="transition hover:text-slate-950">Überblick</a>
+            <a href="#ablauf" className="transition hover:text-slate-950">Ablauf</a>
+            <a href="#kontakt" className="transition hover:text-slate-950">Kontakt</a>
+          </nav>
+
+          <a href="#kontakt">
+            <Button className="rounded-2xl px-5">{company.ctaPrimary}</Button>
+          </a>
+        </div>
+      </header>
+
+      <main>
+        <section className="relative overflow-hidden bg-white">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(15,23,42,0.06),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(15,23,42,0.08),transparent_30%)]" />
+          <div className="relative mx-auto grid max-w-7xl gap-12 px-6 py-20 lg:grid-cols-[1.15fr_0.85fr] lg:px-8 lg:py-28">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.55 }}
+              className="flex flex-col justify-center"
+            >
+              <div className="mb-5 inline-flex w-fit items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-medium text-slate-700">
+                <ShieldCheck className="h-4 w-4" />
+                Fachbetrieb für moderne Heizungs- und Sanitärtechnik
+              </div>
+
+              <h1 className="max-w-3xl text-4xl font-bold tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">
+                {company.headline}
+              </h1>
+
+              <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
+                {company.text}
+              </p>
+
+              <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+                <a href="#kontakt">
+                  <Button size="lg" className="rounded-2xl px-6">
+                    {company.ctaPrimary}
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </a>
+                <a href={`tel:${company.phone}`}>
+                  <Button size="lg" variant="outline" className="rounded-2xl px-6">
+                    <Phone className="mr-2 h-4 w-4" />
+                    {company.ctaSecondary}
+                  </Button>
+                </a>
+              </div>
+
+              <div className="mt-10 grid gap-4 sm:grid-cols-3">
+                {stats.map((item) => (
+                  <div key={item.label} className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
+                    <div className="text-2xl font-bold tracking-tight text-slate-950">{item.value}</div>
+                    <div className="mt-1 text-sm text-slate-600">{item.label}</div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.08 }}
+              className="grid gap-5"
+            >
+              <Card className="overflow-hidden rounded-[28px] border-0 bg-slate-950 text-white shadow-2xl shadow-slate-300">
+                <CardContent className="p-8">
+                  <div className="text-sm uppercase tracking-[0.2em] text-slate-400">Unsere Kernkompetenz</div>
+                  <h2 className="mt-3 text-3xl font-bold tracking-tight">Wärmepumpen & energetische Modernisierung</h2>
+                  <p className="mt-4 leading-7 text-slate-300">
+                    Wir verbinden klassische SHK-Leistungen mit moderner Energietechnik und entwickeln Lösungen, die zu Gebäude, Nutzung und Budget passen.
+                  </p>
+
+                  <div className="mt-7 space-y-3">
+                    {[
+                      "Planung und Installation effizienter Wärmepumpensysteme",
+                      "Heizungsumbau und Modernisierung im Bestand",
+                      "Sanitärarbeiten und Badlösungen aus einer Hand",
+                      "Beratung zu Energieeffizienz und Sanierungsmaßnahmen",
+                    ].map((item) => (
+                      <div key={item} className="flex items-start gap-3 rounded-2xl border border-white/10 bg-white/5 p-4">
+                        <Check className="mt-0.5 h-4 w-4 shrink-0" />
+                        <span className="text-sm text-slate-200">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+
+              <div className="grid gap-5 sm:grid-cols-2">
+                <Card className="rounded-[28px] border-slate-200 bg-white shadow-sm">
+                  <CardContent className="p-6">
+                    <Clock3 className="h-8 w-8" />
+                    <h3 className="mt-4 text-xl font-semibold">Klare Abläufe</h3>
+                    <p className="mt-2 text-sm leading-6 text-slate-600">
+                      Von der Erstberatung bis zur fertigen Umsetzung behalten Sie jederzeit den Überblick.
+                    </p>
+                  </CardContent>
+                </Card>
+                <Card className="rounded-[28px] border-slate-200 bg-white shadow-sm">
+                  <CardContent className="p-6">
+                    <ShieldCheck className="h-8 w-8" />
+                    <h3 className="mt-4 text-xl font-semibold">Saubere Umsetzung</h3>
+                    <p className="mt-2 text-sm leading-6 text-slate-600">
+                      Solides Handwerk, hochwertige Komponenten und eine professionelle Ausführung mit Anspruch.
+                    </p>
+                  </CardContent>
+                </Card>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        <section id="leistungen" className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+          <div className="max-w-2xl">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">Leistungen</p>
+            <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">Unsere Leistungen im Überblick</h2>
+            <p className="mt-4 text-lg text-slate-600">
+              Professionelle Lösungen für Heizung, Sanitär und energetische Sanierungen – passend für private und gewerbliche Projekte.
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {services.map((service, index) => {
+              const Icon = service.icon;
+              return (
+                <motion.div
+                  key={service.title}
+                  initial={{ opacity: 0, y: 14 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.4, delay: index * 0.04 }}
+                >
+                  <Card className="h-full rounded-[28px] border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+                    <CardContent className="p-7">
+                      <div className="inline-flex rounded-2xl bg-slate-100 p-3">
+                        <Icon className="h-6 w-6" />
+                      </div>
+                      <h3 className="mt-5 text-xl font-semibold">{service.title}</h3>
+                      <p className="mt-3 leading-7 text-slate-600">{service.text}</p>
+                      <div className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-slate-900">
+                        Mehr erfahren <ChevronRight className="h-4 w-4" />
+                      </div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              );
+            })}
+          </div>
+        </section>
+
+        <section id="ueberblick" className="bg-slate-950 text-white">
+          <div className="mx-auto grid max-w-7xl gap-10 px-6 py-20 lg:grid-cols-[1fr_1fr] lg:px-8">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">Ihr Vorteil</p>
+              <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
+                Ein Partner für moderne Haustechnik und effiziente Sanierungen
+              </h2>
+              <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-300">
+                Unser Fokus liegt auf technisch sinnvollen, wirtschaftlich tragfähigen und sauber umgesetzten Lösungen – besonders bei Wärmepumpen, Heizungsmodernisierung und energetischer Erneuerung von Bestandsgebäuden.
+              </p>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              {benefits.map((item) => (
+                <div key={item} className="rounded-[28px] border border-white/10 bg-white/5 p-5 text-slate-200">
+                  <div className="flex items-start gap-3">
+                    <Check className="mt-0.5 h-4 w-4 shrink-0" />
+                    <span>{item}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="ablauf" className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+          <div className="max-w-2xl">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">Ablauf</p>
+            <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">So läuft Ihr Projekt mit uns ab</h2>
+          </div>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+            {steps.map((item) => (
+              <Card key={item.number} className="rounded-[28px] border-slate-200 bg-white shadow-sm">
+                <CardContent className="p-7">
+                  <div className="text-sm font-bold tracking-[0.28em] text-slate-400">{item.number}</div>
+                  <h3 className="mt-4 text-xl font-semibold">{item.title}</h3>
+                  <p className="mt-3 leading-7 text-slate-600">{item.text}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </section>
+
+        <section className="bg-white">
+          <div className="mx-auto grid max-w-7xl gap-8 px-6 py-20 lg:grid-cols-[0.95fr_1.05fr] lg:px-8">
+            <Card className="rounded-[32px] border-slate-200 bg-slate-50 shadow-sm">
+              <CardContent className="p-8">
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">Warum jetzt handeln</p>
+                <h2 className="mt-3 text-3xl font-bold tracking-tight">Mehr Effizienz, mehr Komfort, mehr Zukunftssicherheit</h2>
+                <p className="mt-4 leading-7 text-slate-600">
+                  Mit einer modernen Heizlösung und einer sauber geplanten energetischen Sanierung senken Sie Energiekosten, steigern den Wohnkomfort und machen Ihr Gebäude fit für die Zukunft.
+                </p>
+
+                <div className="mt-8 space-y-4">
+                  {[
+                    "Wärmepumpenlösungen für unterschiedliche Gebäudetypen",
+                    "Modernisierung bestehender Heizsysteme",
+                    "Sanitärleistungen für Umbau und Erneuerung",
+                    "Beratung zu sinnvollen energetischen Maßnahmen",
+                  ].map((item) => (
+                    <div key={item} className="flex items-start gap-3 rounded-2xl bg-white p-4 shadow-sm">
+                      <Check className="mt-0.5 h-4 w-4 shrink-0" />
+                      <span className="text-slate-700">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card id="kontakt" className="rounded-[32px] border-0 bg-slate-900 text-white shadow-2xl shadow-slate-300">
+              <CardContent className="p-8 lg:p-10">
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">Kontakt</p>
+                <h2 className="mt-3 text-3xl font-bold tracking-tight">Jetzt unverbindlich anfragen</h2>
+                <p className="mt-4 leading-7 text-slate-300">
+                  Tragen Sie im Code nur noch Ihren Firmennamen, Ihre Kontaktdaten, Ihr Einsatzgebiet und Ihr Impressum ein – dann ist die Seite bereit für GitHub oder Vercel.
+                </p>
+
+                <div className="mt-8 space-y-4 text-sm text-slate-200">
+                  <div className="flex items-center gap-3"><Phone className="h-4 w-4" /> {company.phone}</div>
+                  <div className="flex items-center gap-3"><Mail className="h-4 w-4" /> {company.email}</div>
+                  <div className="flex items-center gap-3"><MapPin className="h-4 w-4" /> {company.address}</div>
+                </div>
+
+                <form className="mt-8 grid gap-4">
+                  <input className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-slate-400 outline-none" placeholder="Name" />
+                  <input className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-slate-400 outline-none" placeholder="E-Mail" />
+                  <input className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-slate-400 outline-none" placeholder="Telefon" />
+                  <textarea className="min-h-[140px] rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-slate-400 outline-none" placeholder="Beschreiben Sie kurz Ihr Vorhaben" />
+                  <Button className="mt-2 rounded-2xl py-6 text-base">Anfrage senden</Button>
+                </form>
+              </CardContent>
+            </Card>
+          </div>
+        </section>
+      </main>
+
+      <footer className="border-t border-slate-200 bg-white">
+        <div className="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-8 text-sm text-slate-600 lg:flex-row lg:items-center lg:justify-between lg:px-8">
+          <div>
+            <div className="font-semibold text-slate-900">{company.name}</div>
+            <div>{company.subline}</div>
+          </div>
+          <div className="flex flex-col gap-1 text-left lg:text-right">
+            <span>{company.address}</span>
+            <span>{company.email} · {company.phone}</span>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
